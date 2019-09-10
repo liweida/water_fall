@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片瀑布流</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f2f2f2;
+        }
+
+        .waterfall .box {
+            position: absolute;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            transition: all .5s;
+
+            /* box-shadow: 0px 1px 3px rgba(0,0,0,.5); */
+        }
+
+        .waterfall .box img {
+            display: block;
+            width: 250px;
+            border-radius: 5px;
+        }
+
+        .waterfall .box p {
+            background: #fff;
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+        }
+
+        .waterfall .box p span {
+            color: #999;
+        }
+
+        .waterfall .box p a {
+            text-decoration: none;
+            color: #444;
+            font-size: 12px;
+        }
+
+        .waterfall .box p a:hover {
+            background: #f60;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="waterfall">
+        <div class="box">
+            <img src="imgs/pic (1).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (2).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (3).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (4).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (5).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (6).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (7).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (8).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (9).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (10).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (11).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (12).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (13).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (14).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (15).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (16).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (17).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (18).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (19).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (20).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (21).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (22).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (23).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (24).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (25).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (26).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (27).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (28).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (29).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (30).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (31).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (32).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (33).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (34).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (35).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (36).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (37).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (38).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (39).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (40).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (41).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (42).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (43).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (44).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (45).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (46).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (47).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (48).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (49).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+        <div class="box">
+            <img src="imgs/pic (50).jpg" alt="">
+            <p><span>标签:</span><a href="#">明星</a></p>
+        </div>
+    </div>
+    <script>
+        // function waterFall() {
+        //     // 取得所有盒子，设置初始化变量
+        //     var boxes = document.querySelectorAll('.box');
+        //     var boxWidth = boxes[0].offsetWidth;
+        //     var col = Math.floor(window.innerWidth / boxWidth);
+        //     var heightArray = [];
+        //     for (var i = 0; i < boxes.length; i++) {
+        //         // 设置第一行
+        //         if (i < col) {
+        //             boxes[i].style.left = i*boxWidth + 'px';
+        //             boxes[i].style.top = 0;
+        //             heightArray.push(boxes[i].offsetHeight);
+        //         } else {
+        //             //其他行，需要找到最小高度列，将图片放在此列的下面。
+        //             var minHeight = Math.min(...heightArray);  // ...表示将数组展开
+        //             var minIndex = heightArray.indexOf(minHeight);
+        //             boxes[i].style.top = minHeight + 'px';
+        //             boxes[i].style.left = minIndex * boxWidth + 'px';
+        //             // 需要更新最小高度列的高度
+        //             heightArray[minIndex] = minHeight + boxes[i].offsetHeight;
+        //         }
+        //     }
+        // }
+        // window.onresize = window.onload = function () {
+        //     waterFall();
+        // }
+        function waterFall() {
+            var boxes = document.querySelectorAll(".box");
+            var boxW = boxes[0].offsetWidth;
+            var col = Math.floor(window.innerWidth / boxW);
+            var heightArray = [];
+            for (var i = 0;i<boxes.length;i++) {
+                if (i < col) {
+                    boxes[i].style.left = i*boxW + 'px';
+                    boxes[i].style.top = 0;
+                    heightArray.push(boxes[i].offsetHeight);
+                } else {
+                    var minH = Math.min(...heightArray);
+                    var minIndex = heightArray.indexOf(minH);
+                    boxes[i].style.top = minH + 'px';
+                    boxes[i].style.left = minIndex*boxW + 'px';
+                    heightArray[minIndex] = minH + boxes[i].offsetHeight;
+                }
+            }
+        }
+        window.onresize = window.onload = function () {
+            waterFall();
+        }
+
+    </script>
+</body>
+
+</html>
