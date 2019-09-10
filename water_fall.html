@@ -21,8 +21,6 @@
             padding-right: 10px;
             padding-bottom: 10px;
             transition: all .5s;
-
-            /* box-shadow: 0px 1px 3px rgba(0,0,0,.5); */
         }
 
         .waterfall .box img {
@@ -258,47 +256,26 @@
         </div>
     </div>
     <script>
-        // function waterFall() {
-        //     // 取得所有盒子，设置初始化变量
-        //     var boxes = document.querySelectorAll('.box');
-        //     var boxWidth = boxes[0].offsetWidth;
-        //     var col = Math.floor(window.innerWidth / boxWidth);
-        //     var heightArray = [];
-        //     for (var i = 0; i < boxes.length; i++) {
-        //         // 设置第一行
-        //         if (i < col) {
-        //             boxes[i].style.left = i*boxWidth + 'px';
-        //             boxes[i].style.top = 0;
-        //             heightArray.push(boxes[i].offsetHeight);
-        //         } else {
-        //             //其他行，需要找到最小高度列，将图片放在此列的下面。
-        //             var minHeight = Math.min(...heightArray);  // ...表示将数组展开
-        //             var minIndex = heightArray.indexOf(minHeight);
-        //             boxes[i].style.top = minHeight + 'px';
-        //             boxes[i].style.left = minIndex * boxWidth + 'px';
-        //             // 需要更新最小高度列的高度
-        //             heightArray[minIndex] = minHeight + boxes[i].offsetHeight;
-        //         }
-        //     }
-        // }
-        // window.onresize = window.onload = function () {
-        //     waterFall();
-        // }
         function waterFall() {
+            // 取得所有盒子，设置初始化变量
             var boxes = document.querySelectorAll(".box");
             var boxW = boxes[0].offsetWidth;
             var col = Math.floor(window.innerWidth / boxW);
             var heightArray = [];
             for (var i = 0;i<boxes.length;i++) {
+                // 设置第一行
                 if (i < col) {
                     boxes[i].style.left = i*boxW + 'px';
                     boxes[i].style.top = 0;
                     heightArray.push(boxes[i].offsetHeight);
                 } else {
+                     //其他行，需要找到最小高度列，将图片放在此列的下面。
+                    // ...表示将数组展开
                     var minH = Math.min(...heightArray);
                     var minIndex = heightArray.indexOf(minH);
                     boxes[i].style.top = minH + 'px';
                     boxes[i].style.left = minIndex*boxW + 'px';
+                    // 需要更新最小高度列的高度
                     heightArray[minIndex] = minH + boxes[i].offsetHeight;
                 }
             }
