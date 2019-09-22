@@ -54,6 +54,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="waterfall">
         <div class="box">
@@ -258,54 +259,94 @@
         </div>
     </div>
     <script>
-        // function waterFall() {
-        //     // 取得所有盒子，设置初始化变量
-        //     var boxes = document.querySelectorAll('.box');
-        //     var boxWidth = boxes[0].offsetWidth;
-        //     var col = Math.floor(window.innerWidth / boxWidth);
-        //     var heightArray = [];
-        //     for (var i = 0; i < boxes.length; i++) {
-        //         // 设置第一行
-        //         if (i < col) {
-        //             boxes[i].style.left = i*boxWidth + 'px';
-        //             boxes[i].style.top = 0;
-        //             heightArray.push(boxes[i].offsetHeight);
-        //         } else {
-        //             //其他行，需要找到最小高度列，将图片放在此列的下面。
-        //             var minHeight = Math.min(...heightArray);  // ...表示将数组展开
-        //             var minIndex = heightArray.indexOf(minHeight);
-        //             boxes[i].style.top = minHeight + 'px';
-        //             boxes[i].style.left = minIndex * boxWidth + 'px';
-        //             // 需要更新最小高度列的高度
-        //             heightArray[minIndex] = minHeight + boxes[i].offsetHeight;
-        //         }
-        //     }
-        // }
-        // window.onresize = window.onload = function () {
-        //     waterFall();
-        // }
+        let box = document.querySelector('.waterfall');
         function waterFall() {
+            // 取得所有盒子，设置初始化变量
             var boxes = document.querySelectorAll(".box");
             var boxW = boxes[0].offsetWidth;
             var col = Math.floor(window.innerWidth / boxW);
             var heightArray = [];
-            for (var i = 0;i<boxes.length;i++) {
+            for (var i = 0; i < boxes.length; i++) {
+                // 设置第一行
                 if (i < col) {
-                    boxes[i].style.left = i*boxW + 'px';
+                    boxes[i].style.left = i * boxW + 'px';
                     boxes[i].style.top = 0;
                     heightArray.push(boxes[i].offsetHeight);
                 } else {
+                    //其他行，需要找到最小高度列，将图片放在此列的下面。
                     var minH = Math.min(...heightArray);
                     var minIndex = heightArray.indexOf(minH);
                     boxes[i].style.top = minH + 'px';
-                    boxes[i].style.left = minIndex*boxW + 'px';
+                    boxes[i].style.left = minIndex * boxW + 'px';
+                    // 需要更新最小高度列的高度
                     heightArray[minIndex] = minH + boxes[i].offsetHeight;
                 }
             }
         }
+        // 改变窗口大小，重新布局
         window.onresize = window.onload = function () {
             waterFall();
         }
+        // 页面滚动条，滚动到一定位置通过ajax加载新的图片
+        window.onscroll = function () {
+            // 判断是否需要加载图片
+            if (needLoad()) {
+                // 加载图片
+                loadPic();
+            }
+        }
+        
+        function needLoad() {
+            let lastBox = document.querySelector('.box:last-of-type');
+            let height = lastBox.getBoundingClientRect().y;
+            return height <= window.innerHeight;
+
+        }
+        var start;
+        function loadPic() {
+            //ajax请求数据, ajax请求需要运行在服务器地址
+            var now = new Date();
+            if (!start || now - start > 1000) {
+                start = now;
+                let xhr = new XMLHttpRequest();
+                xhr.open('get', 'imgs.json', true);
+                xhr.onload = function () {
+                    if (this.status >= 200 && this.status < 300) {
+                        let imgs = JSON.parse(this.responseText);
+                        var boxes = imgs.map(obj => `
+                            <div class="box">
+                                <img src="${obj.src}" alt="">
+                                <p><span>标签:</span><a href="#">明星</a></p>
+                            </div>
+                    `)
+                        boxes = boxes.join('');
+                        box.innerHTML += boxes;
+                        let counter = 0;
+                        imgs.forEach(img => {
+                            var pic = new Image();
+                            pic.src = img.src;
+                            pic.onload = function () {
+                                counter++;
+                                if (counter === imgs.length) {
+                                    waterFall();
+                                }
+                            }
+                            pic.onerror = function () {
+                                counter++;
+                                if (counter === imgs.length) {
+                                    waterFall();
+                                }
+                            }
+                        })
+                    } else {
+                        //出错
+                    }
+                }
+                xhr.send();
+            }
+        }
+
+
 
     </script>
 </body>
